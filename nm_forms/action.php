@@ -46,17 +46,17 @@ $post_request = json_decode(file_get_contents('php://input'), true);
 	$mail_type = "mail"; //тип отправляемого письма (mail,smtp)
 	
 	//Настройки SMTP
-	$SMTP_HOST = "mail.sydekz2.nichost.ru"; // сервер smtp
-	$SMTP_USERNAME = "smtp@sydekz2.nichost.ru"; // имя пользователя
-	$SMTP_PASSWORD = "77XCWhVc9nEXg"; // пароль
+	$SMTP_HOST = ""; // сервер smtp
+	$SMTP_USERNAME = ""; // имя пользователя
+	$SMTP_PASSWORD = ""; // пароль
 	$SMTP_PORT = 25; // порт
 
-	$from = "arenda@bazaperovo.ru"; //с какого Email'a письмо. Указывать только РЕАЛЬНЫЕ email'ы, если выбран тип smtp
-	$from_name = "UrBaza-perovo.ru";
+	$from = "from@site.ru"; //с какого Email'a письмо. Указывать только РЕАЛЬНЫЕ email'ы, если выбран тип smtp
+	$from_name = "Письмо с моего сайта";
 	
 	//на какие адреса отправлять письма
 	//$arRecievers[] = "max-master@yandex.ru";
-	$arRecievers[] = "arenda@bazaperovo.ru";
+	$arRecievers[] = "to@somebody.ru";
 
 	// Тема сообщения (задается в файле формы в поле subject)
 	$subject = $arResult["system"]["subject"]; 
