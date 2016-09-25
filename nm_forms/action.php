@@ -1,5 +1,6 @@
 <?php
-$arJSON["message"] = "<div class='alert alert-error'>Вам либо не удалось обмануть систему, либо Вы - бот. В любом случае, сообщение не может быть отправлено. Увы...</div></div><br>";
+$norobots_message = "<div class='alert alert-error'>Вам либо не удалось обмануть систему, либо Вы - бот. В любом случае, сообщение не может быть отправлено. Увы...</div></div><br>";
+$arJSON["message"] = $norobots_message;
 if(!$_SERVER['REQUEST_METHOD'] == "POST") {
 	echo json_encode($arJSON);
 	exit;
@@ -39,6 +40,7 @@ $post_request = json_decode(file_get_contents('php://input'), true);
 
 	//защита от роботов
 	if(!empty($arResult["system"]['norobots'])){
+		$arJSON["message"] = $norobots_message;
 		echo json_encode($arJSON);
 		exit;
 	}

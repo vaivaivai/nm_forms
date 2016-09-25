@@ -26,7 +26,7 @@ $(document).ready(function(){
 			url: '/nm_forms/assets/tpl/'+modal_form_name+".php",
 			type: 'POST',
 			dataType: 'json',
-			//в форму можно передать какие-либо параметры, для этого используется data-form-params. Например, data-form-params="{param1:'aaa',param2:'bbb'}"
+			//в форму можно передать какие-либо параметры, для этого используется data-nm-form-params. Например, data-nm-form-params="{param1:'aaa',param2:'bbb'}"
 			data: form_params,
 		})
 		.always(function(result) {
@@ -302,11 +302,11 @@ function Validate(this1) {
 			res = true;
 		}
 		one = false;
-	} else if (this1.data('nm-forms-validate') == "file" && res == false) { // <input type="file" class="validate file" name="name" data-format="doc,docx,xls"> format без пробелов
+	} else if (this1.data('nm-forms-validate') == "file" && res == false) {
 		if(value != ''){
 			value = value.split('\\').pop();
 			format = this1.data('format').split(',');
-			format = format.join(")|("); // doc)|(docx)|(xls
+			format = format.join(")|(");
 			pattern = new RegExp('\.(('+format+'))$','i');
 			if (pattern.test(value)){
 				res = true;
