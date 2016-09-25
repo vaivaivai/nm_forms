@@ -1,0 +1,34 @@
+#standaloneModalBlock{
+	position: absolute;
+	top: -9999px;
+	transition: all 0.5s ease;
+}
+#nm_overlay{
+	display: none;
+	background: #000;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.nm_overlay_shown{
+	display: block!important;
+	opacity: 0;
+	z-index: 3333;
+}
+#standaloneModalBlock.visible{
+	overflow-y: auto;
+	z-index: 3334;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+#standaloneModalBlock [data-nmforms]{
+	z-index: 3335;
+}
