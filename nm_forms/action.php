@@ -1,9 +1,9 @@
 <?php
-$norobots_message = "<div class='alert alert-error'>Вам либо не удалось обмануть систему, либо Вы - бот. В любом случае, сообщение не может быть отправлено. Увы...</div></div><br>";
-$arJSON["message"] = $norobots_message;
-if(!$_SERVER['REQUEST_METHOD'] == "POST") {
-	echo json_encode($arJSON);
-	exit;
+// Защита от спама
+if ($_SERVER['REQUEST_METHOD'] !== "POST" || empty($_POST) || $_SERVER['HTTP_X_REQUESTED_WITH'] !== 'XMLHttpRequest' || strpos($_SERVER['HTTP_REFERER'], $_SERVER['HTTP_HOST']) !== 7){
+	header($_SERVER['SERVER_PROTOCOL']." 404 Not Found"); 
+	header ('Status: 404 Not Found');
+	die();
 }else{
 
 //подключаем библиотеку SwiftMail
@@ -40,9 +40,9 @@ $post_request = json_decode(file_get_contents('php://input'), true);
 
 	//защита от роботов
 	if(!empty($arResult["system"]['norobots'])){
-		$arJSON["message"] = $norobots_message;
-		echo json_encode($arJSON);
-		exit;
+		header($_SERVER['SERVER_PROTOCOL']." 404 Not Found"); 
+		header ('Status: 404 Not Found');
+		die();
 	}
 
 	$mail_type = "mail"; //тип отправляемого письма (mail,smtp)
