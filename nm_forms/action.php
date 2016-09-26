@@ -1,6 +1,6 @@
 <?php
 // Защита от спама
-if ($_SERVER['REQUEST_METHOD'] !== "POST" || empty($_POST) || $_SERVER['HTTP_X_REQUESTED_WITH'] !== 'XMLHttpRequest' || strpos($_SERVER['HTTP_REFERER'], $_SERVER['HTTP_HOST']) !== 7){
+if(!$_SERVER['REQUEST_METHOD'] == "POST") {
 	header($_SERVER['SERVER_PROTOCOL']." 404 Not Found"); 
 	header ('Status: 404 Not Found');
 	die();
