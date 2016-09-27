@@ -152,7 +152,7 @@ function sendFormNM(form) {
 		var formData = JSON.stringify(form.serializeArray());
 
 		//объект счетчика Яндекс.Метрики. Устанавливается, если необходимо отправлять цель при успешной отправке формы. Нужно подставить цифры вашей метрики
-		var metrika_counter = yaCounter37564100;
+		//var metrika_counter = yaCounter37564100;
 		//создаем новое подключение
  		var xhr = new JSONHttpRequest();
  		//открываем подключение, устанавливаем метод отправки POST
