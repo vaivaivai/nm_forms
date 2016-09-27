@@ -8,7 +8,7 @@ $(document).ready(function(){
 		$("[data-nmforms-container]").each(function(index, el) {
 			$this_block = $(this);
 			var inline_form_name = $this_block.data("nmforms-container");
-			var inline_form_params = $this_block.data("nm-form-params");
+			var inline_form_params = JSON.parse('{'+$this_block.data("nm-form-params")+'}');
 			loadForm($this_block,inline_form_name,inline_form_params);
 		});
 	}
@@ -20,7 +20,8 @@ $(document).ready(function(){
 		//название модальной формы
 		var modal_form_name = $this.data("get-modal-nm-form");
 		//параметры, передаваемые в форму
-		var form_params = $this.data("nm-form-params");
+		var form_params = JSON.parse('{'+$this.data("nm-form-params")+'}');
+
 		var loaded_form = "";
 		$.ajax({
 			url: '/nm_forms/assets/tpl/'+modal_form_name+".php",
