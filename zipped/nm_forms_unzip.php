@@ -1,5 +1,5 @@
 <?
-$filename = "nm_forms_zipped.zip"; // Zip-файл для распаковки
+$filename = "nm_forms_zipped.zip"; // Zip-С„Р°Р№Р» РґР»СЏ СЂР°СЃРїР°РєРѕРІРєРё
 $zip = zip_open($filename); 
 $folder = substr(str_replace("\\", "/", __FILE__), 0, strrpos(str_replace("\\", "/", __FILE__), "/"))."/";
 $files = 0;
@@ -19,21 +19,21 @@ if (file_exists($filename) && $zip){
 				fclose($file);
 				$files++;
 			}else{
-				echo "Ошибка открытия файла $name";
+				echo "РћС€РёР±РєР° РѕС‚РєСЂС‹С‚РёСЏ С„Р°Р№Р»Р° $name";
 			}
 			zip_entry_close($zip_entry);
 		}
 	}
 	echo "
-		<br><br><font size='5' color='green'><b>Файлы проекта nm_forms успешно извлечены!</b></font> 
-		<br><br>Распаковано файлов: <b>$files</b>
-		<br><br>Распаковано папок: &nbsp;<b>$folders</b>
-		<br><br>Успехов! ;)
+		<br><br><font size='5' color='green'><b>Р¤Р°Р№Р»С‹ РїСЂРѕРµРєС‚Р° nm_forms СѓСЃРїРµС€РЅРѕ РёР·РІР»РµС‡РµРЅС‹!</b></font> 
+		<br><br>Р Р°СЃРїР°РєРѕРІР°РЅРѕ С„Р°Р№Р»РѕРІ: <b>$files</b>
+		<br><br>Р Р°СЃРїР°РєРѕРІР°РЅРѕ РїР°РїРѕРє: &nbsp;<b>$folders</b>
+		<br><br>РЈСЃРїРµС…РѕРІ! ;)
 		";
 	zip_close($zip);
 	unlink(dirname(__FILE__)."/".$filename);
 	unlink(__FILE__);
 }else{
-	echo "<br>\n ОШИБКА ОТКРЫТИЯ zip-файла!";
+	echo "<br>\n РћРЁРР‘РљРђ РћРўРљР Р«РўРРЇ zip-С„Р°Р№Р»Р°!";
 }
 ?>
