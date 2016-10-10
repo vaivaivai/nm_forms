@@ -8,7 +8,13 @@ $(document).ready(function(){
 		$("[data-nmforms-container]").each(function(index, el) {
 			$this_block = $(this);
 			var inline_form_name = $this_block.data("nmforms-container");
-			var inline_form_params = JSON.parse('{'+$this_block.data("nm-form-params")+'}');
+			var inline_nm_form_params = $this_block.data("nm-form-params");
+
+		if(inline_nm_form_params){
+			var inline_form_params = JSON.parse('{'+inline_nm_form_params+'}');
+		}else{
+			var inline_form_params = "";
+		}			
 			loadForm($this_block,inline_form_name,inline_form_params);
 		});
 	}
@@ -20,7 +26,12 @@ $(document).ready(function(){
 		//название модальной формы
 		var modal_form_name = $this.data("get-modal-nm-form");
 		//параметры, передаваемые в форму
-		var form_params = JSON.parse('{'+$this.data("nm-form-params")+'}');
+		var nm_form_params = $this.data("nm-form-params");
+		if(nm_form_params){
+			var form_params = JSON.parse('{'+nm_form_params+'}');
+		}else{
+			var form_params = "";
+		}
 
 		var loaded_form = "";
 		$.ajax({
