@@ -190,6 +190,7 @@ function sendFormNM(form) {
 							     		$("#nm_overlay").animate({"opacity": "0",},400, function() {
 							     			$(this).css({"display":"none"}).removeClass('nm_overlay_shown');
 							     		}).clearQueue();
+									$("html").css("overflow","");
 							     		$("#standaloneModalBlock").animate({"opacity": "0",},400, function() {
 							     			$(this).remove();
 							     		}).clearQueue(); 
